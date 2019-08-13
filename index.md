@@ -1,1 +1,1 @@
-<a href="http://www.bjnews.com.cn"> 新京报</a>
+<a href="http://www.bjnews.com.cn/wevideo/"> 新京报视频</a>
