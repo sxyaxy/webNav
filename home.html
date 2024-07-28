@@ -1,473 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
-<html xmlns="http://www.w3.org/1999/xhtml">
- 
+<html>
 <head>
- 
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
- 
-<title>简洁Tab</title>
- 
+<base target="_blank" /> 
 <style type="text/css">
- 
-<!--
- 
-body,div,ul,li{
- 
- margin:0 auto;
- 
- padding:0;
- 
+  a {text-decoration: none;
+  color:#111111;
+  font-size:16px;
+  padding-left:5px;
+  padding-right:5px;}
+  #divWrap { margin:0 auto;
+    width:800px;
+    align:center;}
+  #divTop{height:80px;}
+  #divBottom {
+    margin:0 auto;
+    bottom: 0;
+    width:800px;
+    align:center;
+    /*color:#9e9ea6;*/    
 }
- 
-body{
- 
- font:12px "宋体";
- 
- text-align:center;
- 
-}
- 
-a:link{
- 
- color:#00F;
- 
- text-decoration:none;
- 
-}
- 
-a:visited {
- 
- color: #00F;
- 
- text-decoration:none;
- 
-}
- 
-a:hover {
- 
- color: #c00;
- 
- text-decoration:underline;
- 
-}
- 
-ul{
- 
- list-style:none;
- 
-}
- 
-.main{
- 
- clear:both;
- 
- padding:8px;
- 
- text-align:center;
- 
-}
- 
-/*第一种形式*/
- 
-#tabs0 {
- 
- height: 200px;
- 
- width: 400px;
- 
- border: 1px solid #cbcbcb;
- 
- background-color: #f2f6fb;
- 
-}
- 
-.menu0{
- 
- width: 400px;
- 
-}
- 
-.menu0 li{
- 
- display:block;
- 
- float: left;
- 
- padding: 4px 0;
- 
- width:100px;
- 
- text-align: center;
- 
- cursor:pointer;
- 
- background: #FFFFff;
- 
-}
- 
-.menu0 li.hover{
- 
- background: #f2f6fb;
- 
-}
- 
-#main0 ul{
- 
- display: none;
- 
-}
- 
-#main0 ul.block{
- 
- display: block;
- 
-}
- 
-/*第二种形式*/
- 
-#tabs1{
- 
- text-align:left;
- 
- width:400px;
- 
-}
- 
-.menu1box{
- 
- position:relative;
- 
- overflow:hidden;
- 
- height:22px;
- 
- width:400px;
- 
- text-align:left;
- 
-}
- 
-#menu1{
- 
- position:absolute;
- 
- top:0;
- 
- left:0;
- 
- z-index:1;
- 
-}
- 
-#menu1 li{
- 
- float:left;
- 
- display:block;
- 
- cursor:pointer;
- 
- width:72px;
- 
- text-align:center;
- 
- line-height:21px;
- 
- height:21px;
- 
-}
- 
-#menu1 li.hover{
- 
- background:#fff;
- 
- border-left:1px solid #333;
- 
- border-top:1px solid #333;
- 
- border-right:1px solid #333;
- 
-}
- 
-.main1box{
- 
- clear:both;
- 
- margin-top:-1px;
- 
- border:1px solid #333;
- 
- height:181px;
- 
- width:400px;
- 
-}
- 
-#main1 ul{
- 
- display: none;
- 
-}
- 
-#main1 ul.block{
- 
- display: block;
- 
-}
- 
-/*第三种形式*/
- 
-.menu2box{
- 
- position:relative;
- 
- overflow:hidden;
- 
- height:22px;
- 
- width:400px;
- 
- text-align:left;
- 
- background: #FFFFff;
- 
-}
- 
-#tabs2 {
- 
- height: 200px;
- 
- width: 400px;
- 
- border: 1px solid #cbcbcb;
- 
- background-color: #f2f6fb;
- 
-}
- 
-#tip2{
- 
- position:absolute;
- 
- top:0;
- 
- left:0;
- 
- height:22px;
- 
- line-height:22px;
- 
- z-index:0;
- 
- width:100px;
- 
- background: #f2f6fb;
- 
-}
- 
-#menu2{
- 
- position:absolute;
- 
- top:0;
- 
- left:0;
- 
- z-index:1;
- 
-}
- 
-#menu2 li{
- 
- display:block;
- 
- float: left;
- 
- padding: 4px 0;
- 
- width:100px;
- 
- text-align: center;
- 
- cursor:pointer;
- 
-}
- 
--->
- 
 </style>
- 
-<script>
- 
-<!--
- 
-/*第一种形式 第二种形式 更换显示样式*/
- 
-function setTab(m,n){
- 
- var tli=document.getElementById("menu"+m).getElementsByTagName("li");
- 
- var mli=document.getElementById("main"+m).getElementsByTagName("ul");
- 
- for(i=0;i<tli.length;i++){
- 
-  tli[i].className=i==n?"hover":"";
- 
-  mli[i].style.display=i==n?"block":"none";
- 
- }
- 
-}
- 
-/*第三种形式 利用一个背景层定位*/
- 
-var m3={0:"",1:"评论内容",2:"技术内容",3:"点评内容"}
- 
-function nowtab(m,n){
- 
- if(n!=0 && m3[0]=="")m3[0]=document.getElementById("main2").innerHTML;
- 
- document.getElementById("tip"+m).style.left=n*100+'px';
- 
- document.getElementById("main2").innerHTML=m3[n];
- 
-}
- 
-//-->
- 
-</script>
- 
+  <title>Study 2024</title>
 </head>
- 
-<body>
- 
-<br />
- 
-<br />
- 
-<!--第一种形式-->
- 
-<div id="tabs0">
- 
- <ul class="menu0" id="menu0">
- 
-  <li οnclick="setTab(0,0)" class="hover">新闻</li>
- 
-  <li οnclick="setTab(0,1)">评论</li>
- 
-  <li οnclick="setTab(0,2)">技术</li>
- 
-  <li οnclick="setTab(0,3)">点评</li>
- 
- </ul>
- 
- <div class="main" id="main0">
- 
-  <ul class="block"><li>新闻列表</li></ul>
- 
-  <ul><li>评论列表</li></ul>
- 
-  <ul><li>技术列表</li></ul>
- 
-  <ul><li>点评列表</li></ul>
- 
- </div>
- 
-</div>
- 
-<br />
- 
-<br />
- 
-<!--第二种形式-->
- 
-<div id="tabs1">
- 
- <div class="menu1box">
- 
-  <ul id="menu1">
- 
-   <li class="hover" οnmοuseοver="setTab(1,0)"><a href="#">新闻</a></li>
- 
-   <li οnmοuseοver="setTab(1,1)"><a href="#">评论</a></li>
- 
-   <li οnmοuseοver="setTab(1,2)"><a href="#">技术</a></li>
- 
-   <li οnmοuseοver="setTab(1,3)"><a href="#">点评</a></li>
- 
-  </ul>
- 
- </div>
- 
- <div class="main1box">
- 
-  <div class="main" id="main1">
- 
-   <ul class="block"><li>新闻列表</li></ul>
- 
-   <ul><li>评论列表</li></ul>
- 
-   <ul><li>技术列表</li></ul>
- 
-   <ul><li>点评列表</li></ul>
+ <body> 
+ <div id='divWrap'>
+ <div id='divTop'></div>
+<div id='divMid'>
+   <strong>课程</strong>
+    <a href="https://www.icourse163.org/">中国大学MOOC(慕课)</a>
+    <a href="https://www.bilibili.com">B站</a> <a href="https://19.offcn.com/list/">19课堂</a> <a href="http://v.huatu.com/kc/">华图在线</a><br/>
+   <strong><font color="#FF0000">笔记</font></strong><a href="https://ankimemory.com/space">Anki记忆卡</a><a href="https://www.yuque.com/">语雀</a><a href="https://aynzckmogh.feishu.cn/drive/home/">飞书文档</a><a href="https://shimo.im/space/913JV7gYEBcjp13E">石墨文档</a> 
+      <a href="https://www.processon.com/diagrams">ProcessOn</a>
+  <a href="https://www.zhixi.com/space?page=owner">知犀</a><a href="https://www.wolai.com/">wolai</a><a href="https://gitmind.cn/">GitMind</a><br/>
+   <strong>习题</strong><a href="https://spa.fenbi.com/tiku">粉笔题库</a><a href="https://hb.huatu.com/mryl/">湖北_每日一练</a> <a href="https://hb.huatu.com/sydw/shiti/">湖北事业单位考试真题</a>
+      <a href="https://www.yaoguo.cn/admin/exercise/myexam">行测</a> <a href="http://tiku.eoffcn.com/pc/">中公题库</a>
+      <a href="http://www.chinagwy.org/html/stzx/index.html">学宝公务员-试题中心</a></br>
+   <strong>时政</strong><a href="https://www.xuexi.cn/">学习强国</a> <a href="http://www.xinhuanet.com">新华网</a> 
+      <a href="http://jhsjk.people.cn/">人民网-习系列重要讲话</a><a href="http://www.xinhuanet.com/politics/xxjxs/index.htm">新华网-学习进行时</a>
+      <a href="http://www.xinhuanet.com/politics/zywj/index.htm">中央文件_新华网</a><br/>
+    <strong><font color="#FF0000">申论：</font></strong><a href="http://www.people.com.cn/">人民网_网上的人民日报</a><br/>
+   <hr/>
+   <strong><font color="#FF0000">成人教育：</font></strong><a href="https://www.qingshuxuetang.com/">青书学堂</a> <a href="http://jxjy.ecjtu.edu.cn/">华东交通成教学院</a><a href="http://www.jxeea.cn/">江西省教育考试院</a><br/>
+   <strong>自考：</strong><a href="https://jxjy.jxnu.edu.cn/">江西师范 继续教育学院</a><br/>
+   <strong>国开：</strong> <a href="http://www.ouchn.edu.cn/">国家开放大学</a><a href="http://www.jxrtvu.com/">江西开放大学</a></br>
+   <strong>学历查询：</strong><a href="https://www.chsi.com.cn/">中国高等教育学生信息网（学信网）</a><br/>
+   <hr/>
+  <strong>报名Web:</strong>  <a href="https://pta.jxhrss.gov.cn/#/login">江西人事考试综合服务平台</a>
  
   </div>
- 
- </div>
- 
-</div>
- 
-<br />
- 
-<br />
- 
-<!--第三种形式-->
- 
-<div id="tabs2">
- 
- <div class="menu2box">
- 
-  <div id="tip2"></div>
- 
-  <ul id="menu2">
- 
-   <li class="hover" οnmοuseοver="nowtab(2,0)"><a href="#">新闻</a></li>
- 
-   <li οnmοuseοver="nowtab(2,1)"><a href="#">评论</a></li>
- 
-   <li οnmοuseοver="nowtab(2,2)"><a href="#">技术</a></li>
- 
-   <li οnmοuseοver="nowtab(2,3)"><a href="#">点评</a></li>
- 
-  </ul>
- 
- </div>
- 
-  <div class="main" id="main2">
- 
-新闻内容
- 
- </div>
- 
-</div>
- 
-<br />
- 
-<br />
- 
-<br />
- 
-<br />
- 
-<br />
- 
-<br />
- 
-<br />
- 
-<br />
- 
+    <div id="divBottom" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;，<br>
+     <a href="https://github.com/sxyaxy/webNav">Github WebNav</a>
+   </div>
+  </div>
+  
+  
 </body>
- 
 </html>
